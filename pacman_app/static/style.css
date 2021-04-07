@@ -6,6 +6,8 @@
 }
 body {
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 #container {
     display: flex;
@@ -14,8 +16,10 @@ body {
     height: 100vh;
     /* background: black; */
 }
-/* #world {
-} */
+#world {
+    height: 30%;
+    width: 50%;
+}
 .row {
     display: flex;
 }
@@ -24,39 +28,39 @@ body {
     width: 5vh;
 }
 .block {
-    background: blue;
+    background: midnightblue;
 }
 .coin, .cherry {
     background-repeat: no-repeat;
     background-position: center;
 }
 .coin {
-    background-image: url(../images/pacman_coin.png);
-    background-size: 2vh;
+    background-image: url(images/pacman_coin.png);
+    background-size: 1vh;
 }
 .cherry {
-    background-image: url(../images/pacman_cherry.png);
-    background-size: 4vh;
+    background-image: url(images/pacman_cherry.png);
+    background-size: 3vh;
 }
 .empty {
     background: white;
 }
 .pacman_left, .pacman_up, .pacman_right, .pacman_down {
-    background-size: 4vh;
+    background-size: 2.5vh;
     background-repeat: no-repeat;
     background-position: center;
 }
 .pacman_left {
-    background-image: url(../images/pacman_left.gif);
+    background-image: url(images/pacman_left.gif);
 }
 .pacman_up {
-    background-image: url(../images/pacman_up.gif);
+    background-image: url(images/pacman_up.gif);
 }
 .pacman_right {
-    background-image: url(../images/pacman_right.gif);
+    background-image: url(images/pacman_right.gif);
 }
 .pacman_down {
-    background-image: url(../images/pacman_down.gif);
+    background-image: url(images/pacman_down.gif);
 }
 #scoreBox {
     display: flex;
