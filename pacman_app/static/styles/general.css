@@ -1,0 +1,36 @@
+body {
+    margin: 15vh 0px 0px 0px;
+    background: rgb(24, 128, 226);
+}
+body, form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.messages {
+    font-size: medium;
+    list-style-type: none;
+    order: 2;
+}
+input {
+    height: 3vh;
+    width: 35vh;
+    margin: 2vh 0px 0px 0px;
+    text-align: center;
+}
+img {
+    border: 2px solid whitesmoke;
+}
+.icon_style {
+    height: 8vh;
+    border-radius: 10px;
+}
+button {
+    margin: 2vh 0px 0px 0px;
+    order: 1;
+}
+a {
+    margin: 1vh 0px 0px 0px;
+    font-size: medium;
+    order: 1;
+}

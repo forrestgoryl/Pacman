@@ -1,0 +1,14 @@
+.scrollmenu input {
+    display: none;
+}
+img:hover {
+    border: 2px solid black;
+}
+input:checked ~ img {
+    border: 2px solid black;
+}
+.scrollmenu {
+    display: flex;
+    overflow-x: auto;
+    width: 100vh;
+}

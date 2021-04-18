@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>SignUp</title>
+        <meta description='description' content='The signup page for Forrest Pacman'>
+        <meta charset='utf-8'>
+        {% load static %}
+        <link rel='shortcut icon' href='{% static "images/favicon.ico" %}'>
+        <link rel='stylesheet' href='{% static "styles/signupPage.css" %}'>
+        <link rel='stylesheet' href='{% static "styles/general.css" %}'>
+    </head>
+    <body>
+        <h1>Pacman</h1>
+        {% if messages %}
+            <ul class='messages'>
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> 
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <form action='/signup' method='POST'>
+            {% csrf_token %}
+            <input type='text' name='email' placeholder='Email' maxlength=25 minlength=3 autocomplete='off' required>
+            <input type='text' name='first_name' placeholder='First Name' maxlength=25 minlength=2 autocomplete='off' required>
+            <input type='password' name='password' placeholder='Password' required>
+            <input type='password' name='confirm_password' placeholder='Confirm Password' required>
+            <p>Select an Icon</p>
+            <div class='scrollmenu'>
+                {% for icon in icon_list %}
+                    <label for='{{ icon }}'>
+                        <input type='radio' name='icon' id='{{ icon }}' value='{{ icon.icon_src }}' required>
+                        <img class='icon_style' src="pacman_app/static/icons/{{ icon.icon_src }}" alt="{{ icon.icon_src }}" title="Your personal icon.">
+                    </label>
+                {% endfor %}
+            </div>
+            <button type='submit'>Create</button>
+        </form>
+        <a href='/toLogin'>or Login</a>
+    </body>
+</html>

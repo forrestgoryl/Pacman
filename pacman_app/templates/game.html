@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Pacman!</title>
+        <meta name="description" content="A yellow man fixated on eating coins.">
+        <meta charset="utf-8">
+        {% load static %}
+        <link rel='shortcut icon' href='{% static "images/favicon.ico" %}'>
+        <link rel="stylesheet" href="{% static 'styles/gamePage.css'%}">
+    </head>
+    <body>
+        <div id="container">
+            <div id="world"></div>
+            <div id="scoreBox">
+                <p>Score:</p>
+            </div>
+        </div>
+        <form action='/logout' method='POST'>
+            {% csrf_token %}
+            <button type='submit'>Logout</button>
+        </form>
+    </body>
+    <script type="text/javascript" src="{% static 'javascript/game.js'%}"></script>
+    })
+</html>

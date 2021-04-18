@@ -1,0 +1,29 @@
+#search {
+    height: 1.5vh;
+    width: 35vh;
+    margin: 5vh 0px 0px 0px;
+    text-align: center;
+    resize: none;
+}
+#highscore_box {
+    overflow-y: auto;
+    height: 20vh;
+    width: 100vh;
+    margin: 1.5vh 0px 5vh 0px;
+    padding: 2vh 2vh 6vh 2vh;
+    background-color: goldenrod;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+#highscore_box p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1vh 0px 1vh 0px;
+}
+#highscore_box p .name {
+    margin-right: auto;
+}
+#highscore_box p img {
+    margin-left: auto;
+}

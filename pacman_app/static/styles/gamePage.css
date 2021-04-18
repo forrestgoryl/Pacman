@@ -1,0 +1,111 @@
+* {
+    /* outline: 1px solid red; */
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+body {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 15vh 0px 0px 0px;
+    background: rgb(24, 128, 226);
+
+}
+#container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+#world {
+    height: 30%;
+    width: 50%;
+    margin-top: 1vh;
+    border: 1px solid black;
+}
+#scoreBox {
+    margin-top: 1vh;
+    height: 10vh;
+    width: 15vh;
+    text-align: center;
+    background-color: midnightblue;
+    font-size: xx-large;
+}
+#scoreBox p {
+    color: whitesmoke;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+button {
+    height: 4vh;
+    width: 10vh;
+    margin: 2vh 0px 0px 0px;
+    background-color: whitesmoke;
+}
+button:hover {
+    background-color: grey;
+}
+.row {
+    display: flex;
+}
+.row div {
+    height: 5vh;
+    width: 5vh;
+}
+.block {
+    background: midnightblue;
+}
+.coin, .cherry {
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.coin {
+    background-image: url(../images/pacman_coin.png);
+    background-size: 1vh;
+}
+.cherry {
+    background-image: url(../images/pacman_cherry.png);
+    background-size: 3vh;
+}
+.ghost_house, .ghost_house_entrance {
+    background: rgb(24, 128, 226);
+}
+div.ghost_house_entrance {
+    border-top: 1px solid blue;
+    height: 4.5vh;
+}
+.empty {
+    background: rgb(24, 128, 226);
+}
+.pacman_left, .pacman_up, .pacman_right, .pacman_down, .blinky, .pinky, .inky, .clyde {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.pacman_left {
+    background-image: url(../images/pacman_left.gif);
+}
+.pacman_up {
+    background-image: url(../images/pacman_up.gif);
+}
+.pacman_right {
+    background-image: url(../images/pacman_right.gif);
+}
+.pacman_down {
+    background-image: url(../images/pacman_down.gif);
+}
+.blinky {
+    background-image: url(../images/red_ghost.gif);
+}
+.pinky {
+    background-image: url(../images/pink_ghost.gif);
+}
+.inky {
+    background-image: url(../images/turquoise_ghost.gif);
+}
+.clyde {
+    background-image: url(../images/orange_ghost.gif);
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>Login</title>
+        <meta description='description' content='The login page for Forrest Pacman.'>
+        <meta charset='utf-8'>
+        {% load static %}
+        <link rel='shortcut icon' href='{% static "images/favicon.ico" %}'>
+        <link rel='stylesheet' href='{% static "styles/loginPage.css" %}'>
+        <link rel='stylesheet' href='{% static "styles/general.css" %}'>
+        <script type='text/javascript'>
+            var users_arr = []
+            var highscores_arr = []
+            var icons_arr = []
+        </script>
+        {% for user in users %}
+            <script type='text/javascript'>
+                var user = "{{ user.first_name }}"
+                users_arr.push(user)
+                var highscore = "{{ user.highscore.highscore }}"
+                highscores_arr.push(highscore)
+                var icon = "{{ user.icon.icon_src }}"
+                icons_arr.push(icon)
+            </script>
+        {% endfor %}
+    </head>
+    <body>
+        <h1>Pacman</h1>
+        {% if messages %}
+            <ul class='messages'>
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> 
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <form action='/login' method='POST'>
+            {% csrf_token %}
+            <input type='text' name='email' placeholder='Email' maxlength=25 minlength=3 autocomplete='off' required>
+            <input type='password' name='password' placeholder='Password' required>       
+            <button type='submit'>Login</button>
+            <a href='/toSignup' method='GET'>or Sign Up</a>
+            <div class='highscores'>
+                <textarea id='search' autocomplete='off' placeholder='Search Highscores'></textarea>
+                <div id='highscore_box'>
+                    {% for highscore in highscores %}
+                        <p class='{{ highscore.user.first_name }}'>
+                            <span class='name'>{{ highscore.user.first_name }}</span>
+                            <span class='highscore'>{{ highscore.highscore }}</span>
+                            <img class='icon_style' src="pacman_app/static/icons/{{ highscore.user.icon.icon_src }}">
+                        </p>
+                    {% endfor %}
+                </div>
+            </div>
+        </form>
+        <script>
+            const searchBar = document.getElementById('search');
+            searchBar.addEventListener("input", e => {
+                let searchString = e.target.value;
+                searchString = searchString.charAt(0).toUpperCase() + searchString.slice(1);
+                const searchNode = document.getElementById('highscore_box');
+                searchNode.innerHTML = "Searching for " + searchString;
+                if(searchString.length != '') {
+                    for(i = 0; i < users_arr.length; i++) {
+                        if(users_arr[i] == searchString) {
+                            var user = users_arr[i]
+                            var highscore = highscores_arr[i]
+                            var icon = icons_arr[i]
+                            document.getElementById('highscore_box').innerHTML=
+                                `
+                                <p class='Forrest'>
+                                    <span class='name'>${user}</span>
+                                    <span class='highscore'>${highscore}</span>
+                                    <img class='icon_style' src='pacman_app/static/icons/${icon}'>
+                                </p>
+                                `
+                        }
+                    }
+                }
+                else{
+                    searchNode.innerHTML = 
+                    `
+                    {% for highscore in highscores %}
+                        <p class='{{ highscore.user.first_name }}'>
+                            <span class='name'>{{ highscore.user.first_name }}</span>
+                            <span class='highscore'>{{ highscore.highscore }}</span>
+                            <img class='icon_style' src="pacman_app/static/icons/{{ highscore.user.icon.icon_src }}">
+                        </p>
+                    {% endfor %}
+                    `
+                }
+            });
+        </script>
+    </body>
+</html>
